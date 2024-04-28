@@ -1,0 +1,150 @@
+@import "variables";
+@import "mixin";
+
+body {
+  background-color: $bgcolor;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $primary-color;
+  padding: 0 10px;
+}
+.logo-name {
+  @include textStyle(36px, 900, $secondry-color);
+}
+
+.hamburger-menu {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+
+  span {
+    width: 2.5rem;
+    height: 0.1rem;
+    background-color: $secondry-color;
+    margin: 3px;
+  }
+}
+
+.navbar {
+  @include textStyle(1.8rem, 700, $secondry-color);
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  ul {
+    margin: 0 1.5rem;
+    transition: all 400ms;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 1rem;
+    @include textStyle(1.2rem, bold, $secondry-color);
+    transition: all 400ms ease-in;
+    &:hover {
+      @include textStyle(1.3rem, bold, $textcolor);
+    }
+  }
+
+  &-img {
+    cursor: pointer;
+    margin: 0 1.5rem;
+
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.section {
+  margin: 2rem 3rem;
+  background-color: $bgcolor;
+  display: flex;
+
+  .aside {
+    width: 25%;
+    @include bodyStyle;
+    @include boxStyle;
+    flex-direction: column;
+    margin-right: 25px;
+
+    .course {
+      @include boxStyle;
+      height: 110px;
+      line-height: 110px;
+      margin: 20px 10px;
+      width: 100%;
+      text-align: center;
+      background-color: $primary-color;
+      @include textStyle(1.2rem, bold, $secondry-color);
+    }
+  }
+  .main {
+    width: 75%;
+    @include bodyStyle;
+    @include boxStyle;
+    flex-direction: column;
+    justify-content: center;
+
+    &-icon {
+      width: 200px;
+      height: 180px;
+      border-radius: 10px;
+    }
+
+    &__title{
+      @include textStyle(32px , 800 , $textcolor);
+      margin: 2rem 0 3rem;
+    }
+    &__text{
+      @include textStyle(28px , 500 , $textcolor);
+
+    }
+  }
+}
+
+@include mediaquery(M) {
+  .navbar {
+    display: none;
+    
+  }
+  .hamburger-menu {
+    display: flex;
+  }
+  .logo-name {
+    font-size: 18px;
+  }
+
+  .section{
+    flex-direction: column-reverse;
+  gap: 1rem;
+  
+  .aside{
+    width: 100%;
+  }
+  .main{
+    width: 100%;
+    height: 500px;
+
+    &__text{
+      font-size: 19px;
+    }
+  }
+}
+}
+
+@include mediaquery(L) {
+  .hamburger-menu {
+    display: none;
+  }
+  .logo-name {
+    font-size: 28px;
+  }
+}

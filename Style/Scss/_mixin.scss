@@ -1,0 +1,40 @@
+@mixin overal {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin textStyle($size, $weight, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin mediaquery($size) {
+  @if ($size == M) {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if ($size == L) {
+    @media (min-width: 765px) and (max-width: 1200px) {
+      @content;
+    }
+  } @else if ($size == XL) {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+@mixin bodyStyle {
+  background-color: $secondry-color;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px ;
+}
+@mixin boxStyle {
+  box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
